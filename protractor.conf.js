@@ -5,6 +5,8 @@ exports.config = {
   multiCapabilities: [{
     'browserName': 'firefox'
   }, {
+    'browserName': 'safari'
+  }, {
     'browserName': 'chrome',
     // See: https://sites.google.com/a/chromium.org/chromedriver/mobile-emulation
     'chromeOptions': {
