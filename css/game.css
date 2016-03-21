@@ -1,4 +1,4 @@
-.r {
+/*.r {
   border-right: 4pt solid black;
 }
 .b {
@@ -16,20 +16,74 @@
 
 td {
   padding:0 5px 0 5px;
+}*/
+
+
+#poker_area{
+    background-color: #003366;
+    height: 100%;
+    width:100%;
 }
 
+#poker_table{
+    background-color: #4CAF50;
+    border-color: #480000;
+    outline-width: 30%;
+    outline-color: #480000;
+    border-width: 30px;
+    border-radius: 50%;    
+    margin: auto;
+}
+.playerInfo{
+   height: 5%;
+   width: 6%;
+   text-align: center;
+   font-size: 2.5vh;
+   border-width: 30%;
+}
+.playerName{
+    background-color: white;
+}
+.playerInfo .playingCards{
+   position: absolute;
+   top: 45%;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+.button {
+  width: 9%;
+  padding: 1% 3%;
+  font-size: 2.5vh;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15%;
+  box-shadow: 0 9% #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+}
 .help-tip {
 	position: absolute;
-  bottom:5px;
-  left: 5px;
+  bottom:5%;
+  left: 5%;
   z-index:10;
 	text-align: center;
 	background-color: #BCDBEA;
 	border-radius: 50%;
-	width: 40px;
-	height: 40px;
-	font-size: 22px;
-	line-height: 42px;
+	width: 40%;
+	height: 40%;
+	font-size: 22%;
+	line-height: 42%;
 	cursor: default;
 }
 .help-tip:before {
