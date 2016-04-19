@@ -12,7 +12,7 @@
     "grunt-cli": "*",
     "grunt-contrib-concat": "*",
     "grunt-contrib-copy": "*",
-    "grunt-contrib-uglify": "*",
+    "grunt-contrib-uglify": "^1.0.1",
     "grunt-http-server": "*",
     "grunt-karma": "*",
     "grunt-manifest": "*",
@@ -28,8 +28,8 @@
     "karma-coverage": "*",
     "karma-jasmine": "*",
     "load-grunt-tasks": "*",
-    "typescript": "*",
-    "protractor": "*"
+    "protractor": "*",
+    "typescript": "*"
   },
   "scripts": {
     "postinstall": "webdriver-manager update",

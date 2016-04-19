@@ -11,6 +11,8 @@ interface IMove {
   endMatchScores: number[];
   turnIndexAfterMove: number;
   stateAfterMove: IState;
+  //currentPlayer: Player;
+  //amount: number;
 }
 interface IStateTransition {
   turnIndexBeforeMove : number;

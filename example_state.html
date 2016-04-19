@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" type="text/css" href="http://yoav-zibin.github.io/emulator/main.css">
   <link rel="stylesheet" type="text/css" href="css/game.css">
-  <link rel="stylesheet" type="text/css" href="css/cards.css" media="screen" />
+  <!--<link rel="stylesheet" type="text/css" href="css/cards.css">-->
   <!--
     Loading code to resize gameArea according to some chosen width-to-height ratio.
     In TicTacToe, the ratio is 1 (i.e., width/height = 1)
@@ -15,7 +15,7 @@
   <script crossorigin="anonymous" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
   <script crossorigin="anonymous" src="http://yoav-zibin.github.io/emulator/dist/turnBasedServices.3.js"></script>
   <script>
-    angular.module('myApp', []).run(function () { resizeGameAreaService.setWidthToHeight(6/3); });
+    angular.module('myApp', []).run(function () { resizeGameAreaService.setWidthToHeight(2); });
   </script>
 </head>
 <body>
@@ -93,14 +93,15 @@
     </div>
   </div>-->
   
-  <div id="poker_area">
+  <!--<div id="pokerArea">-->
     
-   <div id="poker_table" style="position:absolute; top: 20%; left: 25%;height: 45%; width: 50%"></div>
+   <div id="pokerTable" style="position:absolute; top: 20%; left: 25%;height: 45%; width: 50%"></div>
    <!-- place the player info circularly starting with top left !-->
    <div class="playerInfo" style="position:absolute; top: 9%; left: 35%">
+       <div class = "playerState">Raised</div>
        <img src="imgs/e.png"/>
        <div class="playerName">Bazinga!</div>     
-       <div class="playingCards rotateHand inText" >
+       <div class="playingCards rotateHand" >
         <ul class="hand">
         <li>
             <div class="card back">*</div>
@@ -111,10 +112,11 @@
         <ul>
        </div>
    </div>
-   <div class="playerInfo" style="position:absolute; top: 9%; left: 55%">
+   <div class="playerInfo" style="position:absolute; top: 9%; left: 65%">
+       <div class = "playerState">Raised</div>
        <img src="imgs/e.png"/>
        <div class="playerName">Bazinga!</div>
-       <div class="playingCards rotateHand inText" >
+       <div class="playingCards rotateHand" >
         <ul class="hand">
         <li>
             <div class="card back">*</div>
@@ -125,10 +127,12 @@
         <ul>
        </div>
    </div>
-   <div class="playerInfo" style="position:absolute; top: 33%; left: 21%">
+   <!--LEFT CHANGED FROM 72 TO 75-->
+   <div class="playerInfo" style="position:absolute; top: 33%; left: 78%">
+       <div class = "playerState">Raised</div>
        <img src="imgs/e.png"/>
        <div class="playerName">Bazinga!</div>
-       <div class="playingCards rotateHand inText" >
+       <div class="playingCards rotateHand" >
         <ul class="hand">
         <li>
             <div class="card back">*</div>
@@ -139,38 +143,11 @@
         <ul>
        </div>
    </div>
-   <div class="playerInfo" style="position:absolute; top: 33%; left: 72%">
+    <div class="playerInfo" style="position:absolute; top: 60%; left: 50%">
+       <div class = "playerState">Raised</div>
        <img src="imgs/e.png"/>
        <div class="playerName">Bazinga!</div>
-       <div class="playingCards rotateHand inText" >
-        <ul class="hand">
-        <li>
-            <div class="card back">*</div>
-        </li>
-        <li>
-            <div class="card back">*</div>
-        </li>
-        <ul>
-       </div>
-   </div>
-   <div class="playerInfo" style="position:absolute; top: 60%; left: 35%">
-       <img src="imgs/e.png"/>
-       <div class="playerName">Bazinga!</div>
-       <div class="playingCards rotateHand inText" >
-        <ul class="hand">
-        <li>
-            <div class="card back">*</div>
-        </li>
-        <li>
-            <div class="card back">*</div>
-        </li>
-        <ul>
-       </div>
-   </div>
-   <div class="playerInfo" style="position:absolute; top: 60%; left: 55%">
-       <img src="imgs/e.png"/>
-       <div class="playerName">Bazinga!</div>
-       <div class="playingCards rotateHand inText" >
+       <div class="playingCards rotateHand" >
         <ul class="hand">
         <li>
             <a class="card rank-10 clubs" href="#">
@@ -187,9 +164,42 @@
         <ul>
        </div>
    </div>
-   <!-- place cards in the middle of the table !-->
-   <div class="playingCards" style="position:absolute; top: 35%; left: 40%">
+   <!--
+   <div class="playerInfo" style="position:absolute; top: 60%; left: 35%">
+       <div class = "playerState">Raised</div>
+       <img src="imgs/e.png"/>
+       <div class="playerName">Bazinga!</div>
+       <div class="playingCards rotateHand" >
+        <ul class="hand">
+        <li>
+            <div class="card back">*</div>
+        </li>
+        <li>
+            <div class="card back">*</div>
+        </li>
+        <ul>
+       </div>
+   </div>-->
+   <!--LEFT CHANGED FROM 21 TO 20-->
+    <div class="playerInfo" style="position:absolute; top: 33%; left: 20%">
+       <div class = "playerState">Raised</div>
+       <img src="imgs/e.png"/>
+       <div class="playerName">Bazinga!</div>
+       <div class="playingCards rotateHand" >
+        <ul class="hand">
+        <li>
+            <div class="card back">*</div>
+        </li>
+        <li>
+            <div class="card back">*</div>
+        </li>
+        <ul>
+       </div>
+   </div>
+   <!-- place cards in the middle of the table-->
+   <div class="playingCards" style="position:absolute; top: 40%; left: 40%">
     <ul class="table">
+        <!--remeber to add a deck here-->
         <li>
             <a class="card rank-2 diams">
                 <span class="rank">2</span>
@@ -208,12 +218,18 @@
                 <span class="suit">&clubs;</span>
             </a>
         </li>
-    </div>
-    <div class="clear"></div>
-   
+     </ul>
+   </div>
+  <!--<div id=playerInfoBoard style="position:absolute; top:70%; left:90%">-->
+  <div class="pokerchip" style="position=absolute"> </div>
+  <!--</div>-->
+  
   <button class="button" style="position:absolute; top:90%; left: 60%;">Fold</button>
   <button class="button" style="position:absolute; top:90%; left: 70%;">Call</button>
   <button class="button" style="position:absolute; top:90%; left: 80%;">Check</button>
+   <input class ="textBox" type="text" name="raiseAmount" placeholder="Raise by: 10..." maxlength="10"
+          style="position:absolute; top:85%; left: 90%;">
+   <br>
   <button class="button" style="position:absolute; top:90%; left: 90%;">Raise</button>
  </div>
 </body>
