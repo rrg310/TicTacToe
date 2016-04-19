@@ -32,38 +32,41 @@
   <!-- regular display -->
   <!-- Playe Info -->
   <div 
-        style="position:absolute; top:0%; left:0; width:100%; height:30%;">
+    style="position:absolute; top:0%; left:0; width:100%; height:30%;">
     <!-- add an ng if to this div to display info that is not about the current player only-->
     <div ng-repeat = "row in [0,1,2,3,4]" 
         style="position:absolute; top:0; left:{{row * 20}}%; width:20%; height:100%; font-size: 1vmax; 
         {{(row == game.temp_yourPlayerIndex)? 'color: red;' : 'color: white' }}" >
-		<div>{{game.state.table.playerList[row].id}}</div>
-        <div> Chips:{{game.state.table.playerList[row].chipsInPocket}}</div>
-        <div ng-if = "game.getPlayerStateByIndex(row)!= 'Init'">
+		<div ng-if = "game.state.table.playerList.length >= row">{{game.state.table.playerList[row].id}}</div>
+        <div ng-if="game.state.table.playerList.length >= row"> Chips:{{game.state.table.playerList[row].chipsInPocket}}</div>
+        <div ng-if = "(game.state.table.playerList.length >= row)
+        && (game.getPlayerStateByIndex(row)!= 'Init')">
             {{game.getPlayerStateByIndex(row) + ((game.getPlayerStateByIndex(row) ==  'Raise') ? 'd' : 'ed')}}
         </div>
-        <div ng-if = "game.getPlayerStateByIndex(row)!= 'Init' ||game.getPlayerStateByIndex(row)!= 'Fold'">
+        <div ng-if = "(game.state.table.playerList.length >= row)&&(game.getPlayerStateByIndex(row)!= 'Init' ||game.getPlayerStateByIndex(row)!= 'Fold')">
          Current Bet: {{game.state.table.playerList[row].currentBet}}</div>
         <div ng-if = "row == game.state.table.dealerIndex" class="svg-container">
 	        <svg version="1.1" viewBox="0 0 500 500" preserveAspectRatio="xMinYMin meet" class="svg-content">
 	            <circle fill="#F7941E" stroke="#231F20" stroke-width="10" stroke-miterlimit="10" cx="100" cy="100" r="50" opacity="0.6" />
 	        </svg>
         </div>
-        <div ng-if = "!(row == game.state.table.dealerIndex) && !(game.state.table.winners.length > 0)" 
+        <!--<div ng-if = "!(row == game.state.table.dealerIndex) && !(game.state.table.winners.length > 0)" 
              class="svg-container">
 	       <svg style="position:absolute; top:0; left:0; width:100%; height:100%;" 
             class ="svg-content coins">			
 			</svg>
-        </div>
+        </div>-->
         <!-- show this div only at the end of each round, depending on condition-->
-        <div ng-if ="game.state.table.winners.length > 0" 
+        <div ng-if ="(game.state.table.playerList.length >= row)
+             && (game.state.table.winners.length > 0)" 
              style="position:absolute; top:60%; left:2%; width:25%; height:25%;"
 			 ng-class="game.getCardClass(game.state.table.playerList[row].cards[0])">
 			<svg style="position:absolute; top:0; left:0%; width:100%; height:100%;" 
             class ="face">			
 			</svg>
 		</div>
-        <div ng-if ="game.state.table.winners.length > 0" 
+        <div ng-if ="(game.state.table.playerList.length >= row)
+            && (game.state.table.winners.length > 0)" 
              style="position:absolute; top:60%; left:30%; width:25%; height:25%;"
 			 ng-class="game.getCardClass(game.state.table.playerList[row].cards[1])">
 			<svg style="position:absolute; top:0; left:0%; width:100%; height:100%;" 
@@ -205,7 +208,8 @@
         ng-click="game.raised()">
         <p>Raise</p>
     </div>
-    <input ng-if = "game.shouldShowButton('Raise')" id = "raiseAmount" style = "position:absolute; top:0; left:45%; width:10%" value="10"/>
+    <input ng-if = "game.shouldShowButton('Raise')" id = "raiseAmount" 
+        style = "position:absolute; top:0; left:45%; width:10%; font-size: 1vmax;" value="10"/>
     <div ng-if = "game.shouldShowButton('Check')" 
         style="position:absolute; top:40%; left:65%; width:10%; height:40%;"
         class="card"
